@@ -1,0 +1,4 @@
+server:  port: 20012
+
+simulator:  id: pond-1  rate: 1000
+  url: http://thermostat-service-awswebinar.apps.demo-student0.egrsolutions.co.za/temperature-records

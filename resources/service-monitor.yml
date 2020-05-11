@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    k8s-app: prometheus
+  name: msday-services-monitor
+  namespace: msday2020
+spec:
+  endpoints:
+    - interval: 1s
+      path: /actuator/prometheus
+      port: 8080-tcp
+  selector:
+    matchLabels:
+      k8s-app: prometheus

@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: temperatures
+  application:
+    name: thermostat-service
+    
+logging:
+  level:
+    org.springframework.cloud.stream: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'

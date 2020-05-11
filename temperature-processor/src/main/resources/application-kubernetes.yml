@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers:
+          - my-cluster-kafka-bootstrap
+        streams:
+          binder:
+            brokers:
+            - my-cluster-kafka-bootstrap
+            configuration:
+              commit.interval.ms: 1000

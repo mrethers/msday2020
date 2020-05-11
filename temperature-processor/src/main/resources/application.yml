@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: process;consumer;tempGauge;efficiencyGauge
+      bindings:
+        process-in-0:          destination: temperatures
+        process-out-0:
+          destination: efficiencies
+        tempGauge-in-0:
+          destination: temperatures
+        efficiencyGauge-in-0:
+          destination: efficiencies
+          application:    name: efficiency-calculator
+    
+logging:  level:    org.springframework.cloud.stream: INFO
+
+management:  endpoints:    web:      exposure:        include:        - '*'
