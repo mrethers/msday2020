@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: prometheus-alerts
+  application:
+    name: prometheus-receiver
+    
+logging:
+  level:
+    org.springframework.cloud.stream: INFO

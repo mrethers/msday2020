@@ -7,6 +7,11 @@
     namespace: msday2020\
   spec:
     replicas: 1
+    alerting:
+      alertmanagers:
+        - name: alertmanager-operated
+          namespace: awswebinar
+          port: web
     ruleSelector:
       matchLabels:
         prometheus: example

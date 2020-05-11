@@ -8,13 +8,14 @@
 		<version>2.2.4.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>test</groupId>
-	<artifactId>test</artifactId>
+	<groupId>com.perficient.msday2020</groupId>
+	<artifactId>parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
 		<module>./temperature-processor</module>
 		<module>./thermostat-service</module>
 		<module>./messages-common</module>
+		<module>./prometheus-receiver</module>
 	</modules>
 </project>
