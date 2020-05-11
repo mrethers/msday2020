@@ -82,6 +82,37 @@ Now let's add an alerting rule to monitor our efficiency metric:
 1. Change the namespace to where you deployed the services above
 1. Click Create
 
+Alertmanager is a Prometheus service that manages alert notifications. Upon receiving an alter, a message will be sent to a Java bridge that will in turn forward the event to a Kafka topic (default: prometheus-alerts).
+
+Let's first install the prometheus webhook service:
+
+1. Switch to the Developer Perspective
+1. Click +Add menu
+1. Use the following options
+    - __Git Repo URL__: https://github.com/mrethers/msday2020.git
+    - __Git Advanced Options__:
+      - __Context Dir__: /prometheus-receiver
+    - __Builder Image__: Java
+    - __Builder Image Version__: 11 (Red Hat OpenJDK 11)
+    - __Application Name__: temperature-monitoring
+    - __Name__: temperature-receiver
+    - Change the Deployment Config by clicking the link at the bottom, and add an environment variable SPRING_PROFILES_ACTIVE: kubernetes
+    
+Then we need to create a secret that contains the Alertmanager notifications config:
+
+1. Switch back to the Administrator perspective.
+1. In the console, navigate to the Workloads > Secrets page
+1. Choose Create > From YAML
+1. Paste the content of alertmanager-secret.yml
+
+Then deploy the Alertmanager cluster:
+
+1. Go back to the Operators/Installed Operators section in the console
+1. Click the Prometheus Operator
+1. Click Create AlertManager
+1. Paste the content from alertmanager-instance.yml
+1. Go to Networking/Route and create a route for the AlertManager like we did for Prometheus. Use port 9093 to expose the UI.
+
 Finally we deploy the actual Prometheus instance:
 
 1. Click on the Prometheus tab
