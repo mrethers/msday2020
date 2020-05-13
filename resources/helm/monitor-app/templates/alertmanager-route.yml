@@ -1,0 +1,18 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: alertmanager
+  labels:
+    operated-alertmanager: 'true'
+spec:
+  host: ""
+  to:
+    kind: Service
+    name: alertmanager-operated
+    weight: 100
+  port:
+    targetPort: web
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: ""

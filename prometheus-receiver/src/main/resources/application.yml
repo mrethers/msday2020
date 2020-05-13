@@ -10,3 +10,10 @@ spring:
 logging:
   level:
     org.springframework.cloud.stream: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'

@@ -1,0 +1,18 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: grafana
+  labels:
+    application-monitoring: 'true'
+  spec:
+  host: ""
+  to:
+    kind: Service
+    name: grafana-service
+    weight: 100
+  port:
+    targetPort: grafana
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: ""

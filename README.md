@@ -29,7 +29,7 @@ https://access.redhat.com/documentation/en-us/red_hat_amq/7.6/html/evaluating_am
 
 1. Install the Helm CLI by following the instructions in the doc: https://helm.sh/docs/intro/install/
 1. Add the demo Helm repo
-	- helm repo add helm-pure-mc https://raw.githubusercontent.com/2vcps/helm-pure-mc/master/
+	- helm repo add msday2020 https://raw.githubusercontent.com/mrethers/msday2020/master/resources/helm/monitor-app
 	- helm repo update
 1. Install the Openshift CLI if you haven't already. https://docs.openshift.com/container-platform/4.2/cli_reference/openshift_cli/getting-started-cli.html
 
@@ -37,7 +37,13 @@ https://access.redhat.com/documentation/en-us/red_hat_amq/7.6/html/evaluating_am
 
 1. Login to your Openshift cluster from a terminal (oc login) and switch to your project (oc project my-project, replace my-project with the project you create in the previous steps)
 1. Install the demo
-	- helm install helm-pure-mc/minecraft
+	- helm install --generate-name msday2020/monitor-app
+	
+## Verification
+
+It might take a while for the builds to complete since it has to download the maven dependencies first. You can run `oc get pods` to monitor the progress of the deployment.
+
+
 
 # Manual Installation
 

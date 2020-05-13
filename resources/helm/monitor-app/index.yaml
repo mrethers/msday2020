@@ -3,7 +3,30 @@ entries:
   monitor-app:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-05-13T12:10:21.6825303-04:00"
+    created: "2020-05-13T12:48:43.1252043-04:00"
+    dependencies:
+    - alias: thermostat-service
+      name: spring-boot
+      repository: file://../spring-boot
+      version: 0.1.3
+    - alias: temperature-processor
+      name: spring-boot
+      repository: file://../spring-boot
+      version: 0.1.3
+    - alias: prometheus-receiver
+      name: spring-boot
+      repository: file://../spring-boot
+      version: 0.1.3
+    description: A Helm chart to deploy a Spring Boot application from a git repository
+    digest: cb870810084becfed713bc38524b9607fef6bf43b0e519b629eee9030cb840c3
+    name: monitor-app
+    type: application
+    urls:
+    - monitor-app-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2020-05-13T12:48:43.1232046-04:00"
     dependencies:
     - alias: thermostat-service
       name: spring-boot
@@ -27,12 +50,12 @@ entries:
   spring-boot:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-05-13T12:10:21.6835347-04:00"
+    created: "2020-05-13T12:48:43.1262457-04:00"
     description: A Helm chart to deploy a Spring Boot application from a git repository
-    digest: 7c1b12f96b00b992d935045f97f3b5cf1ad2e5ced39ae9c50bc08ad83b20c237
+    digest: 5ac957ea6ca111cc6f8dd02c1f569c00e06569dae505f22ae929097670a502b7
     name: spring-boot
     type: application
     urls:
-    - charts/spring-boot-0.1.2.tgz
-    version: 0.1.2
-generated: "2020-05-13T12:10:21.6805653-04:00"
+    - charts/spring-boot-0.1.3.tgz
+    version: 0.1.3
+generated: "2020-05-13T12:48:43.119238-04:00"
