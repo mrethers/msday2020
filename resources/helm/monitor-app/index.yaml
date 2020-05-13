@@ -3,7 +3,30 @@ entries:
   monitor-app:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-05-13T13:07:11.7055128-04:00"
+    created: "2020-05-13T13:10:43.1750905-04:00"
+    dependencies:
+    - alias: thermostat-service
+      name: spring-boot
+      repository: file://../spring-boot
+      version: 0.1.3
+    - alias: temperature-processor
+      name: spring-boot
+      repository: file://../spring-boot
+      version: 0.1.3
+    - alias: prometheus-receiver
+      name: spring-boot
+      repository: file://../spring-boot
+      version: 0.1.3
+    description: A Helm chart to deploy a Spring Boot application from a git repository
+    digest: 488338d1d6dfafa7120f3137f177cc7d091be3c3d8f0bc243b7ece35feb968c7
+    name: monitor-app
+    type: application
+    urls:
+    - monitor-app-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2020-05-13T13:10:43.1700932-04:00"
     dependencies:
     - alias: thermostat-service
       name: spring-boot
@@ -26,7 +49,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-05-13T13:07:11.7004657-04:00"
+    created: "2020-05-13T13:10:43.1610944-04:00"
     dependencies:
     - alias: thermostat-service
       name: spring-boot
@@ -49,7 +72,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-05-13T13:07:11.6974558-04:00"
+    created: "2020-05-13T13:10:43.1570961-04:00"
     dependencies:
     - alias: thermostat-service
       name: spring-boot
@@ -72,7 +95,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-05-13T13:07:11.6954923-04:00"
+    created: "2020-05-13T13:10:43.1560947-04:00"
     dependencies:
     - alias: thermostat-service
       name: spring-boot
@@ -96,7 +119,7 @@ entries:
   spring-boot:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-05-13T13:07:11.7064533-04:00"
+    created: "2020-05-13T13:10:43.1760912-04:00"
     description: A Helm chart to deploy a Spring Boot application from a git repository
     digest: 5ac957ea6ca111cc6f8dd02c1f569c00e06569dae505f22ae929097670a502b7
     name: spring-boot
@@ -104,4 +127,4 @@ entries:
     urls:
     - charts/spring-boot-0.1.3.tgz
     version: 0.1.3
-generated: "2020-05-13T13:07:11.6924558-04:00"
+generated: "2020-05-13T13:10:43.1530957-04:00"
