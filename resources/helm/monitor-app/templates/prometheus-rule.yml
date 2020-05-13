@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    prometheus: example
+    role: alert-rules
+  name: prometheus-rules
+spec:
+  groups:
+    - name: ./example.rules
+      rules:
+        # Alert for any heater that has an efficiency < 80
+        - alert: LowEfficiencyAlert
+          annotations:
+            description: >-
+              {{ "{{" }} $labels.device_id {{ "}}" }} efficiency fell under 80% (current value:
+              {{ "{{" }} $value {{ "}}" }})
+            summary: Low efficiency on {{ "{{" }} $labels.device_id {{ "}}" }}
+          expr: heater_efficiency < 80
+          for: 1m

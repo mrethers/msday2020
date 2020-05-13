@@ -1,0 +1,10 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: temperature-dashboard
+spec:
+  name: temperature-dashboard.json
+  json: |-
+    {{ .Files.Get "config/temperature-dashboard.json" | toJson | quote | indent 2 }}

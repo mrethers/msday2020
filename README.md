@@ -1,8 +1,13 @@
-# Installation:
+# Installation
 
-## Pre-requesites:
+## Prerequisites
 
-Openshift 4+
+Openshift 4+ with admin access
+Openshift CLI if you're doing the scripted install (Recommended)
+
+## Namespace
+
+To avoid permission issues, create a dedicated project/namespace to hold all the resources from this demo. This will also make cleanup easier later.
 
 ## Dependencies
 
@@ -11,6 +16,30 @@ Openshift 4+
 - Grafana Operator
 
 Folllow the instructions in the Openshift documentation in order to install the required operators from the cluster's web console: https://docs.openshift.com/container-platform/4.1/applications/operators/olm-adding-operators-to-cluster.html
+
+__NOTE__: When asked about the namespace, choose to install only in the project you created in the previous step.
+
+__NOTE__: AMQ Streams 1.4.1 currently doesn't deploy on Openshift because of a bug in the operator. You can install 1.4.0 by following the simple steps in the AMQ streams doc instead:
+
+https://access.redhat.com/documentation/en-us/red_hat_amq/7.6/html/evaluating_amq_streams_on_openshift/assembly-evaluation-str#proc-install-crds-str
+
+# Scripted Install
+
+## Preparation
+
+1. Install the Helm CLI by following the instructions in the doc: https://helm.sh/docs/intro/install/
+1. Add the demo Helm repo
+	- helm repo add helm-pure-mc https://raw.githubusercontent.com/2vcps/helm-pure-mc/master/
+	- helm repo update
+1. Install the Openshift CLI if you haven't already. https://docs.openshift.com/container-platform/4.2/cli_reference/openshift_cli/getting-started-cli.html
+
+## Installation
+
+1. Login to your Openshift cluster from a terminal (oc login) and switch to your project (oc project my-project, replace my-project with the project you create in the previous steps)
+1. Install the demo
+	- helm install helm-pure-mc/minecraft
+
+# Manual Installation
 
 ## AMQ Streams/Kafka
 

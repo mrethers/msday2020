@@ -3,8 +3,7 @@ kind: ServiceMonitor
 metadata:
   labels:
     k8s-app: prometheus
-  name: msday-services-monitor
-  namespace: msday2020
+  name: service-monitor
 spec:
   endpoints:
     - interval: 1s

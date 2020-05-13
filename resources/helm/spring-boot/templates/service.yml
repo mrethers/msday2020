@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ include "spring-boot.fullname" . }}
+  labels:
+    {{- include "spring-boot.labels" . | nindent 4 }}
+    k8s-app: prometheus
+  annotations:
+    {{- include "spring-boot.annotations" . | nindent 4 }}
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.port }}
+  selector:
+    {{- include "spring-boot.selectorLabels" . | nindent 4 }}

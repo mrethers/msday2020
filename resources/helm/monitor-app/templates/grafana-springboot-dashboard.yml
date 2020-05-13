@@ -1,0 +1,10 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: springboot-dashboard
+spec:
+  name: springboot-dashboard.json
+  json: |-
+    {{ .Files.Get "config/springboot-dashboard.json" | toJson | quote | indent 2 }}

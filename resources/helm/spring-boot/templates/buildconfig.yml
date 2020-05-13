@@ -1,0 +1,38 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: {{ include "spring-boot.fullname" . }}
+  labels:
+    {{- include "spring-boot.labels" . | nindent 4 }}
+  annotations:
+    {{- include "spring-boot.annotations" . | nindent 4 }}
+spec:
+  nodeSelector: {}
+  triggers:
+    - type: ImageChange
+      imageChange: {}
+  output:
+    to:
+      kind: ImageStreamTag
+      name: {{ .Chart.Name }}:latest
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'java:11'
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: {{ .Values.git.url }}
+    {{ if .Values.git.module }}
+    contextDir: {{ .Values.git.module }}
+    {{ end }}
+  runPolicy: Serial
+status:
+  lastVersion: 0

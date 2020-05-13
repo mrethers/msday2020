@@ -1,0 +1,12 @@
+dependencies:
+- name: spring-boot
+  repository: file://../spring-boot
+  version: 0.1.2
+- name: spring-boot
+  repository: file://../spring-boot
+  version: 0.1.2
+- name: spring-boot
+  repository: file://../spring-boot
+  version: 0.1.2
+digest: sha256:2bf417015b552dde86db018af0ba5fde38caebd77b7ab0b4ebb5593f2af3e72e
+generated: "2020-05-13T12:00:24.1036803-04:00"

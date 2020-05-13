@@ -1,0 +1,20 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: {{ include "spring-boot.fullname" . }}
+  labels:
+    {{- include "spring-boot.labels" . | nindent 4 }}
+  annotations:
+    {{- include "spring-boot.annotations" . | nindent 4 }}
+spec:
+  to:
+    kind: Service
+    name: {{ include "spring-boot.fullname" . }}
+    weight: 100
+  host: ""
+  port:
+    targetPort: {{ .Values.service.port }}-tcp
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: ""
